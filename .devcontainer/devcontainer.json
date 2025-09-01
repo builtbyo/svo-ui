@@ -1,0 +1,69 @@
+{
+    "name": "SVO UI",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/itsmechlark/features/rabbitmq-server:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "Anthropic.claude-code",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "ms-vscode-remote.remote-containers",
+                "mikestead.dotenv",
+                "GitHub.codespaces",
+                "GitHub.remotehub",
+                "ms-vscode.remote-repositories",
+                "ms-dotnettools.vscode-dotnet-pack",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "formulahendry.auto-complete-tag",
+                "steoates.autoimport",
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit",
+                "ms-azuretools.vscode-docker",
+                "docker.docker",
+                "EditorConfig.EditorConfig",
+                "cweijan.vscode-es-client2",
+                "dbaeumer.vscode-eslint",
+                "figma.figma-vscode-extension",
+                "github.vscode-github-actions",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.vscode-pull-request-github",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "ms-dotnettools.vscodeintellicode-csharp",
+                "ms-vscode.vscode-typescript-next",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "ms-vscode.makefile-tools",
+                "christian-kohler.npm-intellisense",
+                "christian-kohler.path-intellisense",
+                "Postman.postman-for-vscode",
+                "esbenp.prettier-vscode",
+                "cweijan.vscode-redis-client",
+                "Redis.redis-for-vscode",
+                "humao.rest-client",
+                "rust-lang.rust-analyzer",
+                "inlang.vs-code-extension",
+                "svelte.svelte-vscode",
+                "bradlc.vscode-tailwindcss",
+                "Vercel.turbo-vsc",
+                "redhat.vscode-yaml",
+                "ms-python.vscode-pylance",
+                "ms-python.pylint",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.mypy-type-checker",
+                "ms-python.autopep8",
+                "1YiB.rust-bundle"
+            ]
+        }
+    },
+    "postCreateCommand": "corepack prepare pnpm@latest --activate && [ -f package.json ] || npm init -y && pnpm install && npm install -g @anthropic-ai/claude-code && pnpm add turbo --global && pnpm add -D turbo"
+}
