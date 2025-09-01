@@ -1,38 +1,22 @@
 {
-	"name": "svo-package-template",
+	"name": "svo-ui",
 	"version": "0.0.1",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build && npm run prepack",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"prepack": "svelte-kit sync && svelte-package && publint",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "pnpm -r --parallel dev",
+		"dev:www": "pnpm --filter www dev",
+		"dev:demo": "pnpm --filter demo dev",
+		"build": "pnpm -r build",
+		"build:packages": "pnpm --filter './packages/*' build",
+		"build:apps": "pnpm --filter './apps/*' build",
+		"check": "pnpm -r check",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
-	},
-	"files": [
-		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
-	],
-	"sideEffects": [
-		"**/*.css"
-	],
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
-	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"test": "pnpm -r test"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
